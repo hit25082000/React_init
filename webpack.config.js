@@ -21,6 +21,7 @@ module.exports = {
 		compress: true,
 		port: 9000,
 	  },
+	
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, 'public', 'index.html')
@@ -32,7 +33,12 @@ module.exports = {
 				test: /\.jsx$/,
 				exclude: /node_modules/,
 				use: 'babel-loader',
-			}
-		]
+			},
+			{
+				test: /\.css$/,
+				exclude: /node_modules/,
+				use: ['style-loader', 'css-loader'],
+			},
+		],
 	}
 };
